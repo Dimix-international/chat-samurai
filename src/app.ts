@@ -5,17 +5,24 @@ import { Server } from "socket.io";
 const cors = require('cors');
 const app = express();//приложение
 
+app.options('*', cors())
 
 const httpServer = createServer(app);//сервер
-const socket = new Server(httpServer);//socket
+const socket = new Server(httpServer, {
+    cors: {
+        origin: "http://localhost:3000",
+        methods: 'GET,POST,PUT,DELETE',
+        credentials:true
+    }
+});//socket
 
-app.use(
+/*app.use(
     cors({
         origin: "http://localhost:3000",
         methods: 'GET,POST,PUT,DELETE',
         credential: true,
     })
-)
+)*/
 
 app.get('/', (req, res) => {
     res.send('Hello it is WS server'); //создали endpoint
