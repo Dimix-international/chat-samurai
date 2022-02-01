@@ -12,7 +12,7 @@ const socket = new Server(httpServer, {
     }
 });//socket
 
-app.get('/', (req, res) => {
+app.get('/',cors(), (req, res) => {
     res.send('Hello it is WS server'); //создали endpoint
 })
 
