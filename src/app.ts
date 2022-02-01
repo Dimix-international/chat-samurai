@@ -14,6 +14,8 @@ io.on("connection", (socket) => {
     // ...
 });
 
-httpServer.listen(3009, () =>{
+const PORT = process.env.PORT || 3009;
+
+httpServer.listen(PORT, () =>{
     console.log('listening 3009...')
 });
