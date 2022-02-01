@@ -6,7 +6,7 @@ const app = express();//приложение
 const httpServer = createServer(app);//сервер
 const socket = new Server(httpServer, {
     cors: {
-        origin: "https://localhost:3000"
+        origin: 'https://chat-samurai.herokuapp.com'
     }
 });//socket
 
