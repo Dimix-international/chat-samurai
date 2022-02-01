@@ -4,15 +4,20 @@ import { Server } from "socket.io";
 
 const cors = require('cors');
 const app = express();//приложение
-app.use(cors());
-const httpServer = createServer(app);//сервер
-const socket = new Server(httpServer, {
-    cors: {
-        origin: 'https://chat-samurai.herokuapp.com'
-    }
-});//socket
 
-app.get('/',cors(), (req, res) => {
+
+const httpServer = createServer(app);//сервер
+const socket = new Server(httpServer);//socket
+
+app.use(
+    cors({
+        origin: "http://localhost:3000",
+        methods: 'GET,POST,PUT,DELETE',
+        credential: true,
+    })
+)
+
+app.get('/', (req, res) => {
     res.send('Hello it is WS server'); //создали endpoint
 })
 
