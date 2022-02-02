@@ -48,9 +48,18 @@ socket.on("connection", (socketChannel) => {
 
     //socketChannel - сокет канал с конкретным пользователем
     // дальнейшие подписки идут на него
+    //если видимо on - это значит подписались на событие с "другой стороны" (с фронта) сейчас
     socketChannel.on("client-message-sent", (message:string) => {
         // socket подписался на событие client-message-sent, и когда оно произойдет выполняется этот код
-        console.log(message)
+        const messageItem = {
+            message: `${message}`,
+            id: 'fe3232wds22232',
+            user: {id: 'scsc3434', name: 'Vika'}
+        };
+        messages.push(messageItem);
+
+        //рассылаем сообщение новое всем пользователям - публикуем событие, на фронте должны подписаться
+        socket.emit('new-message-sent', messageItem)
     });
 
     //пользователь connected, пришелем ему те сообщения которые у нас уже есть messages[]
