@@ -10,7 +10,7 @@ app.options('*', cors())
 const httpServer = createServer(app);//сервер
 const socket = new Server(httpServer, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://dimix-international.github.io/my-first-chat/", //https://dimix-international.github.io/my-first-chat/
         methods: 'GET,POST,PUT,DELETE',
         credentials: true
     }
@@ -105,6 +105,4 @@ socket.on("connection", (socketChannel) => {
 
 const PORT = process.env.PORT || 4009;
 
-httpServer.listen(PORT, () => {
-    console.log(`listening => http://localhost:${PORT}`)
-});
+httpServer.listen('https://dimix-international.github.io/my-first-chat/');
