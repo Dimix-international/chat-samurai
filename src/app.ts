@@ -10,7 +10,7 @@ app.options('*', cors())
 const httpServer = createServer(app);//сервер
 const socket = new Server(httpServer, {
     cors: {
-        origin: "https://dimix-international.github.io/my-first-chat/",
+        origin: "https://chat-samurai.herokuapp.com/",
         methods: 'GET,POST,PUT,DELETE',
         credentials: true
     }
