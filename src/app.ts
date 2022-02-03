@@ -10,7 +10,7 @@ app.options('*', cors())
 const httpServer = createServer(app);//сервер
 const socket = new Server(httpServer, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://dimix-international.github.io/my-first-chat/",
         methods: 'GET,POST,PUT,DELETE',
         credentials: true
     }
