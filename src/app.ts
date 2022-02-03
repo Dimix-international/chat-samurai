@@ -8,13 +8,7 @@ const app = express();//приложение
 app.options('*', cors())
 
 const httpServer = createServer(app);//сервер
-const socket = new Server(httpServer, {
-    cors: {
-        origin: "https://chat-samurai.herokuapp.com/",
-        methods: 'GET,POST,PUT,DELETE',
-        credentials: true
-    }
-});//socket
+const socket = new Server(httpServer);//socket
 
 
 const messages: any[] = []
