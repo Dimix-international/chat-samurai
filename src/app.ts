@@ -8,7 +8,11 @@ const app = express();//приложение
 app.use(cors())
 
 const httpServer = createServer(app);//сервер
-const socket = new Server(httpServer);//socket
+const socket = new Server(httpServer, {
+    cors: {
+        origin: '*'
+    }
+});//socket
 
 
 const messages: any[] = []
