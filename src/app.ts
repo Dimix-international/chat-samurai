@@ -5,7 +5,7 @@ import {Server} from "socket.io";
 const cors = require('cors');
 const app = express();//приложение
 
-app.options('*', cors())
+app.use(cors())
 
 const httpServer = createServer(app);//сервер
 const socket = new Server(httpServer, {
