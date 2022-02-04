@@ -10,7 +10,7 @@ app.use(cors())
 const httpServer = createServer(app);//сервер
 const socket = new Server(httpServer, {
     cors: {
-        origin: '*'
+        origin: 'https://dimix-international.github.io'
     }
 });//socket
 
