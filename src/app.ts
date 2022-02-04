@@ -8,13 +8,7 @@ const app = express();//приложение
 app.use(cors())
 
 const httpServer = createServer(app);//сервер
-const socket = new Server(httpServer, {
-    cors: {
-        origin: "http://localhost:3000", //https://dimix-international.github.io/my-first-chat/
-        methods: 'GET,POST,PUT,DELETE',
-        credentials: true
-    }
-});//socket
+const socket = new Server(httpServer);//socket
 
 
 const messages: any[] = []
